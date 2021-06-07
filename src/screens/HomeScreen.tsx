@@ -7,6 +7,7 @@ import { MoviePoster } from '../components/MoviePoster';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Carousel from 'react-native-snap-carousel';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import { HorizontalSlider } from '../components/HorizontalSlider';
 
 
 const windowWidth = Dimensions.get('window').width
@@ -44,19 +45,12 @@ export const HomeScreen = () => {
              renderItem={({item}:any)=> <MoviePoster movie={item}/>}
              sliderWidth={windowWidth}
              itemWidth={180}
+             inactiveSlideOpacity={0.9}
              />
 
              </View>
-       {/* peliculas populares       */}
-       <View style={{backgroundColor:'red',height:250}}>
-           <Text style={{fontSize:30,fontWeight:'bold'}}>En Cines</Text>
-           <FlatList
-            data={peliculasEnCine}
-            renderItem={({item}:any)=> (<MoviePoster movie={item} width={100}height={200}/>)}
-            keyExtractor={ (item)=>item.id.toString() }
-            horizontal={true}
-           />
-       </View>
+       <HorizontalSlider title='en cines' movies={peliculasEnCine}/>
+       <HorizontalSlider title='favs' movies={peliculasEnCine}/>
         </View>
     </ScrollView>      
     )
