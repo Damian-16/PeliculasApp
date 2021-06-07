@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react'
 import { ActivityIndicator, ActivityIndicatorBase, Button, Dimensions, Text, View } from 'react-native'
-import { MovieDBNowPlaying } from '../interfaces/movieInterface';
+import { MovieDBResponse } from '../interfaces/movieInterface';
 import { useMovies } from '../hooks/useMovies';
 import { MoviePoster } from '../components/MoviePoster';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -13,7 +13,7 @@ import { HorizontalSlider } from '../components/HorizontalSlider';
 const windowWidth = Dimensions.get('window').width
 
 export const HomeScreen = () => {
-    const {peliculasEnCine,IsLoading} = useMovies();
+    const {peliculasEnCine,peliculasPopulares,IsLoading} = useMovies();
     console.log(peliculasEnCine[4]?.title)
     const navigation = useNavigation();
     const {top}= useSafeAreaInsets();
@@ -50,7 +50,7 @@ export const HomeScreen = () => {
 
              </View>
        <HorizontalSlider title='en cines' movies={peliculasEnCine}/>
-       <HorizontalSlider title='favs' movies={peliculasEnCine}/>
+       <HorizontalSlider title='Populares' movies={peliculasPopulares}/>
         </View>
     </ScrollView>      
     )
