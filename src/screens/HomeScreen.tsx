@@ -1,20 +1,23 @@
 import { useNavigation } from '@react-navigation/core';
 import React, { useEffect } from 'react'
-import { Button, View } from 'react-native'
+import { ActivityIndicator, ActivityIndicatorBase, Button, View } from 'react-native'
 import movieDB from '../api/movieDB';
 import { MovieDBNowPlaying } from '../interfaces/movieInterface';
+import { useMovies } from '../hooks/useMovies';
 
 
 export const HomeScreen = () => {
-    useEffect(() => {
-       movieDB.get<MovieDBNowPlaying>('/now_playing')
-       .then(resp=>{
-           console.log(resp.data.results[0].title) //primera posicion de las peliculas primer titulo
-       })
-        
-    }, [])
-
+    const {peliculasEnCine,IsLoading} = useMovies();
+    console.log(peliculasEnCine[4]?.title)
     const navigation = useNavigation();
+
+    if(IsLoading){
+        return (
+            <View style={{flex:1,justifyContent:'center',alignContent:'center'}}>
+                <ActivityIndicator color="red" size={100}/>
+            </View>
+        )
+    }
     return (
         <View>
             <Button 
