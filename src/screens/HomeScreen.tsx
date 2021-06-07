@@ -13,8 +13,8 @@ import { HorizontalSlider } from '../components/HorizontalSlider';
 const windowWidth = Dimensions.get('window').width
 
 export const HomeScreen = () => {
-    const {peliculasEnCine,peliculasPopulares,IsLoading} = useMovies();
-    console.log(peliculasEnCine[4]?.title)
+    const {nowPlaying,popular,topRated,upComing,IsLoading} = useMovies();
+    // console.log(peliculasEnCine[4]?.title)
     const navigation = useNavigation();
     const {top}= useSafeAreaInsets();
     if(IsLoading){
@@ -38,10 +38,9 @@ export const HomeScreen = () => {
           {/* carrousel principal    */}
             <View style={{
             height:340,
-            // backgroundColor:'red'
-        }} >
+           }} >
              <Carousel 
-             data={peliculasEnCine}
+             data={nowPlaying}
              renderItem={({item}:any)=> <MoviePoster movie={item}/>}
              sliderWidth={windowWidth}
              itemWidth={180}
@@ -49,8 +48,11 @@ export const HomeScreen = () => {
              />
 
              </View>
-       <HorizontalSlider title='en cines' movies={peliculasEnCine}/>
-       <HorizontalSlider title='Populares' movies={peliculasPopulares}/>
+       <HorizontalSlider title='en cines' movies={nowPlaying}/>
+       <HorizontalSlider title='Populares' movies={popular}/>
+       <HorizontalSlider title='TOP' movies={topRated}/>
+       <HorizontalSlider title='Proximamente' movies={upComing}/>
+       {/* //ejemplo movies={nowPlaying!}la almiracion denota que si o si ese dato va a  venir, le decimos ala maquina quew no se preocupe */}
         </View>
     </ScrollView>      
     )
