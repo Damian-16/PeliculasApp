@@ -7,23 +7,26 @@ import { styles } from './styles/MoviePosterStyles';
 
 
 interface Props {
-    movie:Movie
+    movie:Movie;
+    height?:number;
+    width?:number;
 }
 
 
 
 
 
-export const MoviePoster = ({movie}:Props) => {
+export const MoviePoster = ({movie,height=300,width=180}:Props) => {
  const uri =`https://image.tmdb.org/t/p/w500${ movie.poster_path }`;
     
    //console.log(movie.poster_path);
 
     return (
         <View style={{
-            width:150,
-            height:300,
-            // backgroundColor:'red'
+            width,
+            height,
+            marginHorizontal:8
+           
         }}>
            <View style={styles.imageContainer}>
            <Image 
