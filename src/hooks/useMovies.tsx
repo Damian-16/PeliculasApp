@@ -10,6 +10,7 @@ export const useMovies = () => {
 
         const resp = await movieDB.get<MovieDBNowPlaying>('/now_playing');
         setPeliculasEnCine(resp.data.results)
+        setIsLoading(false);
         
     }
     
