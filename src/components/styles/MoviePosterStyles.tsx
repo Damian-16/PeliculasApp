@@ -19,5 +19,23 @@ export const styles = StyleSheet.create({
         
          elevation: 10,
         
+    },
+    posterImage:{
+      flex:1,
+     
+      resizeMode:"stretch"
+    },
+    marginContainer:{
+        marginHorizontal:20,
+        marginTop:28
+    },
+    subTitle:{
+        fontSize:16,
+        opacity:0.8
+
+    },
+    title:{
+        fontSize:20,
+        fontWeight:'bold',
     }
 });

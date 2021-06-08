@@ -27,12 +27,7 @@ export const HomeScreen = () => {
     return (
       <ScrollView>
         <View style={{marginTop: top + 20}}> 
-            {/* <MoviePoster
-            movie={peliculasEnCine[1]}/>
-            <Button 
-            title="ir detalle"
-            onPress={()=>navigation.navigate('DetailScreen')}></Button>
-             */}
+           
 
 
           {/* carrousel principal    */}
