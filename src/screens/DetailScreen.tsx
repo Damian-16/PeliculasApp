@@ -5,15 +5,20 @@ import { RootStackParams } from '../navigation/Navigation';
 import { styles } from '../components/styles/MoviePosterStyles';
 import { ScrollView } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useMoviesDetails } from '../hooks/useMoviesDetails';
 
 const screenHeight = Dimensions.get('screen').height;
 
 interface Props extends StackScreenProps<RootStackParams,'DetailScreen'>{};
 
 export const DetailScreen = ({route}:Props) => {
+ 
     const movie = route.params // as Movie;
+    console.log(movie.id)
     console.log(movie.title)
     const uri =`https://image.tmdb.org/t/p/w500${ movie.poster_path }`;
+
+    useMoviesDetails(movie.id)
 
          
    
