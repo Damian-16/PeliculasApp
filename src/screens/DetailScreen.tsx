@@ -3,7 +3,7 @@ import React from 'react'
 import { Text, View, Image, Dimensions, ActivityIndicator } from 'react-native';
 import { RootStackParams } from '../navigation/Navigation';
 import { styles } from '../components/styles/MoviePosterStyles';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useMoviesDetails } from '../hooks/useMoviesDetails';
 import { Cast } from '../interfaces/creditsInterface';
@@ -14,7 +14,7 @@ const screenHeight = Dimensions.get('screen').height;
 
 interface Props extends StackScreenProps<RootStackParams,'DetailScreen'>{};
 
-export const DetailScreen = ({route}:Props) => {
+export const DetailScreen = ({route,navigation}:Props) => {
  
     const movie = route.params // as Movie;
     console.log(movie.id)
@@ -35,6 +35,19 @@ export const DetailScreen = ({route}:Props) => {
                flex:0,
                paddingBottom:5,
               }}>
+                      {/*Botonpara cerrar */}
+               <View style={styles.backButton}>
+                 <TouchableOpacity
+                 onPress={()=>navigation.pop()}>
+               <Icon 
+               color="yellow"
+               name="arrow-back-outline"
+               size={150}
+               style={{bottom:40}}
+              
+               />
+               </TouchableOpacity>
+               </View>
                 <View style={styles.imageBorder}>
 
                     <Image 
@@ -55,6 +68,7 @@ export const DetailScreen = ({route}:Props) => {
                  ?<ActivityIndicator size={35} color="grey" style={{marginTop:20}}/>
                  :<MovieDetails movieFull={movieFull!} cast={cast}/>
                }
+         
                 </ScrollView>
         
     )

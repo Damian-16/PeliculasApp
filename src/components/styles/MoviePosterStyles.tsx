@@ -67,5 +67,14 @@ export const styles = StyleSheet.create({
     actorInfo:{
         marginLeft:10,
         // marginTop:1
+    },
+    backButton:{
+        position:"absolute",
+        zIndex:999,
+        elevation:9,
+        top:1,
+        left:10,
+        // backgroundColor:'red',
+       
     }
 });
