@@ -4,6 +4,7 @@ import  Icon  from 'react-native-vector-icons/Ionicons';
 import { Cast } from '../interfaces/creditsInterface';
 import { MovieFull } from '../interfaces/movieInterface';
 import currencyFormatter from 'currency-formatter';
+import { CastItem } from './CastItem';
 
 interface Props{
 
@@ -41,6 +42,15 @@ export const MovieDetails = ({movieFull,cast}:Props) => {
                 Presupuesto
             </Text>
             <Text>{currencyFormatter.format(movieFull.budget,{code:'USD'})} </Text>
+            {/*Casting */}
+         <View style={{marginTop:10 ,marginBottom:100}}>
+
+             <Text style={{fontSize:23 ,marginTop:10,fontWeight:'bold',marginHorizontal:20}}>
+                 Actores
+             </Text>    
+            <CastItem actor={cast[0]}/>
+           
+         </View>   
         </View>    
         </>
     )

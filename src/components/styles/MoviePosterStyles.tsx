@@ -43,5 +43,22 @@ export const styles = StyleSheet.create({
     title:{
         fontSize:20,
         fontWeight:'bold',
+    },
+    actorContainer:{
+        flexDirection:'row',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.24,
+        shadowRadius: 3.84,
+        
+         elevation: 10,
+         backgroundColor:'white',
+         borderRadius:10
+    },
+    actorInfo:{
+        marginLeft:10
     }
 });
