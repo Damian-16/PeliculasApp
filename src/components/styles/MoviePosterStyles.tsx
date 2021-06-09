@@ -20,6 +20,12 @@ export const styles = StyleSheet.create({
          elevation: 10,
         
     },
+    imageBorder:{
+        flex:1,
+        overflow:'hidden',
+        borderBottomEndRadius:25,
+        borderBottomStartRadius:25
+    },
     posterImage:{
       flex:1,
      

@@ -1,11 +1,10 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react'
 import { Text, View, Image, Dimensions } from 'react-native';
-import { Movie } from '../interfaces/movieInterface';
 import { RootStackParams } from '../navigation/Navigation';
 import { styles } from '../components/styles/MoviePosterStyles';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const screenHeight = Dimensions.get('screen').height;
 
@@ -26,22 +25,26 @@ export const DetailScreen = ({route}:Props) => {
                height:screenHeight *0.7,
                flex:0,
                paddingBottom:5,
-              //  backgroundColor:'red',
-               overflow:'hidden',
-               borderBottomEndRadius:25,
-               borderBottomStartRadius:25
               }}>
+                <View style={styles.imageBorder}>
 
-                <Image 
-                
-                source={{uri}}
-                style={styles.posterImage}
-                />
+                    <Image 
+                    
+                    source={{uri}}
+                    style={styles.posterImage}
+                    />
+                </View>
                 </View> 
                 <View style={styles.marginContainer}>
                 <Text style={styles.title}>{movie.original_title}</Text>
                 <Text style={styles.subTitle}>{movie.title}</Text>
                 </View>
+             <View style={styles.marginContainer}>
+               <Icon 
+               name='airplane-outline'
+               color='grey'
+               size={30}/>
+             </View>
                 </ScrollView>
         
     )
