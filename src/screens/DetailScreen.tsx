@@ -1,12 +1,13 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react'
-import { Text, View, Image, Dimensions } from 'react-native';
+import { Text, View, Image, Dimensions, ActivityIndicator } from 'react-native';
 import { RootStackParams } from '../navigation/Navigation';
 import { styles } from '../components/styles/MoviePosterStyles';
 import { ScrollView } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useMoviesDetails } from '../hooks/useMoviesDetails';
 import { Cast } from '../interfaces/creditsInterface';
+import { MovieDetails } from '../components/MovieDetails';
 
 
 const screenHeight = Dimensions.get('screen').height;
@@ -47,12 +48,13 @@ export const DetailScreen = ({route}:Props) => {
                 <Text style={styles.title}>{movie.original_title}</Text>
                 <Text style={styles.subTitle}>{movie.title}</Text>
                 </View>
-             <View style={styles.marginContainer}>
-               <Icon 
-               name='airplane-outline'
-               color='grey'
-               size={30}/>
-             </View>
+        
+             
+               {
+                 isLoading
+                 ?<ActivityIndicator size={35} color="grey" style={{marginTop:20}}/>
+                 :<MovieDetails movieFull={movieFull!} cast={cast}/>
+               }
                 </ScrollView>
         
     )
