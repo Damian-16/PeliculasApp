@@ -6,6 +6,8 @@ import { styles } from '../components/styles/MoviePosterStyles';
 import { ScrollView } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useMoviesDetails } from '../hooks/useMoviesDetails';
+import { Cast } from '../interfaces/creditsInterface';
+
 
 const screenHeight = Dimensions.get('screen').height;
 
@@ -18,7 +20,8 @@ export const DetailScreen = ({route}:Props) => {
     console.log(movie.title)
     const uri =`https://image.tmdb.org/t/p/w500${ movie.poster_path }`;
 
-    useMoviesDetails(movie.id)
+    const {isLoading,movieFull,cast} = useMoviesDetails(movie.id)
+    console.log({isLoading,movieFull,cast})
 
          
    
