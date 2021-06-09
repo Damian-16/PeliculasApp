@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 import  Icon  from 'react-native-vector-icons/Ionicons';
 import { Cast } from '../interfaces/creditsInterface';
 import { MovieFull } from '../interfaces/movieInterface';
+import currencyFormatter from 'currency-formatter';
 
 interface Props{
 
@@ -27,6 +28,19 @@ export const MovieDetails = ({movieFull,cast}:Props) => {
                     - {movieFull.genres.map(g => g.name).join(', ')}
                 </Text> 
             </View>
+            {/*Historia */}
+            <Text style={{fontSize:20,marginTop:10,fontWeight:'bold'}}>
+                Historia
+            </Text>
+            <Text style={{fontSize:16}}>
+                {movieFull.overview}
+            </Text>
+
+              {/*Presupuesto */}
+              <Text style={{fontSize:20,marginTop:10,fontWeight:'bold'}}>
+                Presupuesto
+            </Text>
+            <Text>{currencyFormatter.format(movieFull.budget,{code:'USD'})} </Text>
         </View>    
         </>
     )
