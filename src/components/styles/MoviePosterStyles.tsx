@@ -56,9 +56,16 @@ export const styles = StyleSheet.create({
         
          elevation: 10,
          backgroundColor:'white',
-         borderRadius:10
+         borderRadius:10,
+         marginRight:5,
+         paddingRight:5,
+         paddingTop:4,
+         marginHorizontal:20,
+         paddingBottom:10
+      
     },
     actorInfo:{
-        marginLeft:10
+        marginLeft:10,
+        // marginTop:1
     }
 });

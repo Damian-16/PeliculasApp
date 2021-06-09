@@ -13,9 +13,11 @@ const uri = `https://image.tmdb.org/t/p/w500${ actor.profile_path }`;
 
     return (
         <View style={styles.actorContainer}>
+            {actor.profile_path && (  
             <Image
               source={{uri}}
-              style={{width:50,height:50,borderRadius:10}}/>
+              style={{width:50,height:50,borderRadius:10}}/>)}
+         
        
         <View style={styles.actorInfo}>
             <Text style={{fontSize:18,fontWeight:'bold'}}>
