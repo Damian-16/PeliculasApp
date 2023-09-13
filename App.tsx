@@ -5,15 +5,16 @@
  * @format
  */
 
+import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 
-import {SafeAreaView, Text} from 'react-native';
+import {Navigation} from './src/navigation/Navigation';
 
 function App(): JSX.Element {
   return (
-    <SafeAreaView>
-      <Text>A</Text>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Navigation />
+    </NavigationContainer>
   );
 }
 
