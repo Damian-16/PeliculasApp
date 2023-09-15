@@ -8,6 +8,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Carousel from 'react-native-snap-carousel';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import { HorizontalSlider } from '../components/HorizontalSlider';
+import GradientBackground from '../components/GradientBackground';
 
 
 const windowWidth = Dimensions.get('window').width
@@ -25,6 +26,7 @@ export const HomeScreen = () => {
         )
     }
     return (
+      <GradientBackground>
       <ScrollView>
         <View style={{marginTop: top + 20}}> 
            
@@ -49,6 +51,7 @@ export const HomeScreen = () => {
        <HorizontalSlider title='Proximamente' movies={upComing}/>
        {/* //ejemplo movies={nowPlaying!}la almiracion denota que si o si ese dato va a  venir, le decimos ala maquina quew no se preocupe */}
         </View>
-    </ScrollView>      
+    </ScrollView>    
+    </GradientBackground>  
     )
 }

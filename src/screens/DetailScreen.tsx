@@ -40,10 +40,10 @@ export const DetailScreen = ({route,navigation}:Props) => {
                  <TouchableOpacity
                  onPress={()=>navigation.pop()}>
                <Icon 
-               color="yellow"
+              //  color="yellow"
                name="arrow-back-outline"
-               size={150}
-               style={{bottom:40}}
+               size={60}
+               
               
                />
                </TouchableOpacity>
