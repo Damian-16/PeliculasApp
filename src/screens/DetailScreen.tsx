@@ -22,7 +22,7 @@ export const DetailScreen = ({route,navigation}:Props) => {
     const uri =`https://image.tmdb.org/t/p/w500${ movie.poster_path }`;
 
     const {isLoading,movieFull,cast} = useMoviesDetails(movie.id)
-    console.log({isLoading,movieFull,cast})
+   // console.log({isLoading,movieFull,cast})
 
          
    

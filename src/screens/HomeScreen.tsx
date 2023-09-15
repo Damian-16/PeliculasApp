@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/core';
-import React from 'react'
+import React,{useContext} from 'react'
 import { ActivityIndicator, ActivityIndicatorBase, Button, Dimensions, Text, View } from 'react-native'
 import { MovieDBResponse } from '../interfaces/movieInterface';
 import { useMovies } from '../hooks/useMovies';
@@ -9,6 +9,9 @@ import Carousel from 'react-native-snap-carousel';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import { HorizontalSlider } from '../components/HorizontalSlider';
 import GradientBackground from '../components/GradientBackground';
+import { getImageColors } from '../helpers/getColores';
+import { GradientContext } from '../context/GradientContext';
+
 
 
 const windowWidth = Dimensions.get('window').width
@@ -18,6 +21,16 @@ export const HomeScreen = () => {
     // console.log(peliculasEnCine[4]?.title)
     const navigation = useNavigation();
     const {top}= useSafeAreaInsets();
+    const {setMainColors}=useContext(GradientContext)
+    
+    const getPosterColors = async(index:number)=>{
+      const movie = nowPlaying[index];
+      const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+      const [primary='green',secondary='orange'] = await getImageColors(uri);
+      //mando a llamar mi context
+      setMainColors({primary: primary, secondary: secondary})
+      
+    }
     if(IsLoading){
         return (
             <View style={{flex:1,justifyContent:'center',alignContent:'center'}}>
@@ -42,6 +55,7 @@ export const HomeScreen = () => {
              sliderWidth={windowWidth}
              itemWidth={180}
              inactiveSlideOpacity={0.9}
+             onSnapToItem={index => getPosterColors(index)}
              />
 
              </View>
